@@ -21,7 +21,6 @@ typedef struct cubo_t{
 //Chave completa
 typedef struct chave_t{
   std::vector<std::vector<uint8_t>> c;
-  uint64_t rfk{0};
 } chave_t;
 */
 
@@ -174,9 +173,6 @@ chave_t* gera_chave(){
     vetor_chaves->c.push_back(bytes_chave);
   }
 
-  //Gera a chave da Railfence
-  vetor_chaves->rfk=0;
-
   return vetor_chaves;
 }
 
@@ -185,8 +181,6 @@ chave_t* gera_chave(){
 void destroi_chave(chave_t* chave){
   if(!chave)  
     return;
-
-  chave->rfk=0;
 
   for(uint64_t i=0; i<chave->c.size(); i++){
     for(uint64_t j=0; j<chave->c[i].size(); j++)
@@ -218,9 +212,6 @@ void salvar_chave(std::ostream& saida, const chave_t& chave) {
     //Escreve todos os bytes do vetor interno de uma vez
     saida.write(reinterpret_cast<const char*>(inner_vec.data()), inner_size);
   }
-  
-  //Escreve o byte no final como append 
-  chave.rfk;
 
   //Verifica se ocorreu algum erro durante a escrita
   if (!saida.good()) {
@@ -259,9 +250,6 @@ chave_t* carregar_chave(std::istream& entrada) {
     //Adiciona o vetor interno ao vetor principal
     chave_carregada->c.push_back(std::move(inner_vec));
   }
-  
-  //Ler o byte do railfence
-  chave_carregada->rfk=0;
 
   if (entrada.fail() && !entrada.eof()) {
     throw std::runtime_error("Erro ao ler dados do stream.");
