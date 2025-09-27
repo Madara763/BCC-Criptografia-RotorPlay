@@ -29,5 +29,5 @@ Opcoes complementares:
 ```
 
 ## Informacoes sobre o algoritmo
-Basicamente eh uma mistura de [PlayFair].(https://en.wikipedia.org/wiki/Playfair_cipher) com [Cifra de Rotor].(https://en.wikipedia.org/wiki/Rotor_machine)
+Basicamente eh uma mistura de [PlayFair](https://en.wikipedia.org/wiki/Playfair_cipher) com [Cifra de Rotor](https://en.wikipedia.org/wiki/Rotor_machine)
 Para mais detalhes, leia o codigo.
