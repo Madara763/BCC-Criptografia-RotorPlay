@@ -36,7 +36,6 @@ typedef struct cubo_t{
 //Chave completa
 typedef struct chave_t{
   std::vector<std::vector<uint8_t>> c;
-  uint64_t rfk{0};
 } chave_t;
 
 //----------------------FUNCOES----------------------
