@@ -1,12 +1,3 @@
-/*
-  Programa criado para o T1 de Cripografia de BCC na UFPR.
-  Alunos: Davi Lazzarin e Mardoqueu Nunes
-  Data: 10/09/25
-  Esse programa recebe algums parametros na linha de comando:
-  -d : indica que o programa vai decriptar, espera 3 argumentos. 1) Arquivo com a chave, 2) Nome do arquivo cifrado, 3) Nome do arquivo decrifrado, se existir sera sobreescrito, se nao existir cria um no diretorio corrente 
-  -c : indica que o programa vai cifrar , espera 2 argumentos. 1) Nome do arquivo decifrado, 2) Nome do arquivo cifrado, se existir sera sobreescrito, se nao existir cria um no diretorio corrente 
-  -k : se usado com o -c indica que o proximo parametro contem o nome do arquivo com a chave que sera usada na cifra, gera erro se o arquivo nao existir ou se a chave nao estiver no formato esperado
-*/
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
