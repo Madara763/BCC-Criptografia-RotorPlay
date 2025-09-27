@@ -28,6 +28,6 @@ Opcoes complementares:
   -k : indica que o proximo parametro contem o nome do arquivo com a chave que sera usada na cifra, gera erro se o arquivo nao existir ou se a chave nao estiver no formato esperado.
 ```
 
-##Informacoes sobre o algoritmo
+## Informacoes sobre o algoritmo
 Basicamente eh uma mistura de PlayFair.(https://en.wikipedia.org/wiki/Playfair_cipher) com (Cifra de Rotor).(https://en.wikipedia.org/wiki/Rotor_machine)
 Para mais detalhes, leia o codigo.
