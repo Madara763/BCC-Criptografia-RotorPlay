@@ -1,9 +1,3 @@
-/*
-  Essa biblioteca implementa funcoes de criptografia criadas para o desenvolvimento do T1 de Criptografia de BCC na UFPR
-  Alunos: Davi Lazzarin e Mardoqueu Nunes
-  Data: 23/09/25
-*/
-
 #include <unordered_map>
 #include <vector>
 #include <cstdint>
