@@ -54,7 +54,7 @@ Em um nivel micro cada camada do cubo funciona como uma PlayFair, onde o par de 
 Agora para finalizar, a rotação usada na Cifra de Rotor que é o coração da cifra, na RotorPlay é feita como um deslocamento dos bytes dentro da camada, onde o byte no índice n após uma rotação vai para o índice n+1, e o da última posição vai para a primeira, como uma lista circular, após 256 rotações a primeira camada terá completado uma volta e a segunda camada fará a sua primeira rotação. 
 
 ##### Chave:
-A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho variavel de 0 a 256, onde cada sequência será utilizada para preencher cada uma das 16 camadas da mesma forma que a PlayFair, os bytes são copiados para o inicio da matriz e se não completar a matriz é completado em ordem crescente sem que haja repetição.
+A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho variavel de 0 a 256, onde cada sequência será utilizada para preencher cada uma das 16 camadas da mesma forma que a PlayFair, os bytes são copiados para o inicio da matriz e se não completar a matriz é completado em ordem crescente sem que haja repetição.  
 Tamanho da chave, 16x265 Bytes, 4KB de chave.  
 A opção -g do programa gera chaves completas, com 16 sequências de 256 bytes.  
 
