@@ -50,7 +50,7 @@ A estrutura da RotorPlay é abstraída para um cubo de 16x16x16 Bytes, ou 16 mat
 Para explicar a RotorPlay precisamos definir uma camada, chamamos de camada as matrizes do cubo, ou seja, um cubo de 16x16x16 Bytes é composto por 16 camadas, e cada camada corresponde a uma matriz de 16x16 Bytes, ou seja, cada camada tem 256 posições, cada uma com um byte.  
 Agora, vamos a cifra da RotorPlay, em um nivel macro, podemos ver como uma Cifra de Rotor, onde cada camada funciona como um disco, recebe a unidade de dados, substitui e gera uma saída, que por sua vez entra em outra camada e assim sucessivamente.  
 A unidade de dados supracitada é um par de bytes, semelhante a PlayFair, mas ao ínves de letras, usamos bytes.   
-Em um nivel macro cada camada do cubo funciona como uma PlayFair, onde o par de bytes é usado na consulta das posições na matriz e cada dois bytes são trocados por outros dois bytes.  
+Em um nivel micro cada camada do cubo funciona como uma PlayFair, onde o par de bytes é usado na consulta das posições na matriz e cada dois bytes são trocados por outros dois bytes.  
 Agora para finalizar, a rotação usada na Cifra de Rotor que é o coração da cifra, na RotorPlay é feita como um deslocamento dos bytes dentro da camada, onde o byte no índice n após uma rotação vai para o índice n+1, e o da última posição vai para a primeira, como uma lista circular, após 256 rotações a primeira camada terá completado uma volta e a segunda camada fará a sua primeira rotação. 
 
 ##### Chave:
