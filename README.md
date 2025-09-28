@@ -30,4 +30,14 @@ Opcoes complementares:
 
 ## Informacoes sobre o algoritmo
 Basicamente eh uma mistura de [PlayFair](https://en.wikipedia.org/wiki/Playfair_cipher) com [Cifra de Rotor](https://en.wikipedia.org/wiki/Rotor_machine).  
+### Detalhes:
+Para enterdermos o RotorPLay é necessario um bom entendimento de como a PlayFair e como a Cifra de Rotor funcionam.  
+
+#### [PlayFair](https://en.wikipedia.org/wiki/Playfair_cipher):
+Uma cifra de substituição que usa uma matriz de caracteres como chave.  
+A cifra é feita com base em digramas, onde pares de letras são utilizados para busca e substituição na matriz, ou seja, dado um digrama [X,Y] é feita a busca por linha e coluna na matriz e gera um digrama de saida [A,B].  
+
+
+### Definicoes:
+
 Para mais detalhes, leia o codigo.
