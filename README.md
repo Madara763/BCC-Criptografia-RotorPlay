@@ -58,7 +58,7 @@ A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho
 A opção -g do programa gera chaves completas, com 16 sequências de 256 bytes.  
 
 ##### Caracteristicas:
-Poder de criptografia: A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição. A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^C$ -> $(256^2)^{16}$ -> $((2^8)^2)^{16}$ = $2^{256}$
+Poder de criptografia: A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição. A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^D$ -> $(256^2)^{16}$ -> $((2^8)^2)^{16}$ = $2^{256}$
 
 ### Definicoes:
 
