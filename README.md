@@ -54,11 +54,11 @@ Em um nivel macro cada camada do cubo funciona como uma PlayFair, onde o par de 
 Agora para finalizar, a rotação usada na Cifra de Rotor que é o coração da cifra, na RotorPlay é feita como um deslocamento dos bytes dentro da camada, onde o byte no índice n após uma rotação vai para o índice n+1, e o da última posição vai para a primeira, como uma lista circular, após 256 rotações a primeira camada terá completado uma volta e a segunda camada fará a sua primeira rotação. 
 
 ##### Chave:
-A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho variavel de 0 a 256, onde cada sequência será utilizada para preencher cada uma das 16 camadas da mesma forma que a PlayFair, os bytes são copiados para o inicio da matriz e se não completar a matriz é completado em ordem crescente sem que haja repetição.  
+A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho variavel de 0 a 256, onde cada sequência será utilizada para preencher cada uma das 16 camadas da mesma forma que a PlayFair, os bytes são copiados para o inicio da matriz e se não completar a matriz é completado em ordem crescente sem que haja repetição.
+Tamanho da chave, 16x265 Bytes, 4KB de chave.  
 A opção -g do programa gera chaves completas, com 16 sequências de 256 bytes.  
 
-##### Caracteristicas:
-Poder de criptografia: A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição. A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^D$ -> $(256^2)^{16}$ -> $((2^8)^2)^{16}$ = $2^{256}$
+##### Poder de Criptografia: A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição. A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^D$ -> $(256^2)^{16}$ -> $((2^8)^2)^{16}$ = $2^{256}$. Esse valor é extremamente alto, além disso, uma caracteristica levada em conta em cifras tradicionais é a análise de frequência, que é prejudicada conforme maior for a distância entre a repetição do par entrada saída, esse é um ponto forte da Cifra de Rotor e aumenta conforme o tamanho e quantidade dos discos, na RotorPlay ao inserir uma stream de bytes idênticos, a saída vai se repetir após $2^128$ bytes cifrados.  
 
 ### Definicoes:
 
