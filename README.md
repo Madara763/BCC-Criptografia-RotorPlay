@@ -41,7 +41,7 @@ Em uma matriz 5x5, com 25 caracteres como a usada na PLayFair, cada caractere te
 #### [CIFRA DE ROTOR](https://en.wikipedia.org/wiki/Rotor_machine):  
 Uma cifra de substituição e de fluxo que utiliza varios discos alinhados para troca dos caracteres.  
 A cifra é feita da seguinte forma, cada disco faz uma substituição, para um caractere na entrada, gera um caractere na saída, que por sua vez se torna o caractere de entrada do próximo disco, e assim até passar por todos os discos. Quando passa por todos os discos o primeiro disco é girado em uma posição, fazendo com que ao inserir o mesmo caractere da rodada anterior a saída seja diferente. Quando o primeiro disco completa uma volta, o próximo disco gira uma posição, igual um odômetro de carro.  
-Essa cifra gera uma explosão combinatória a cada novo disco, e a quantidade de possibilidades para cada caractere é dada pela seguinte fórmula $Q^N 
+Essa cifra gera uma explosão combinatória a cada novo disco, e a quantidade de possibilidades para cada caractere é dada pela seguinte fórmula $Q^N$
 
 
 
