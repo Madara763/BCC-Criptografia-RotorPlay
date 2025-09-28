@@ -30,13 +30,14 @@ Opcoes complementares:
 
 ## Informacoes sobre o algoritmo
 Basicamente eh uma mistura de [PlayFair](https://en.wikipedia.org/wiki/Playfair_cipher) com [Cifra de Rotor](https://en.wikipedia.org/wiki/Rotor_machine).  
+
 ### Detalhes:
 Para enterdermos o RotorPLay é necessario um bom entendimento de como a PlayFair e como a Cifra de Rotor funcionam.  
 
 #### [PLAYFAIR](https://en.wikipedia.org/wiki/Playfair_cipher):  
 Uma cifra de substituição que usa uma matriz de caracteres como chave.  
 A cifra é feita com base em digramas, onde pares de letras são utilizados para busca e substituição na matriz, ou seja, dado um digrama [X,Y] é feita a busca por linha e coluna na matriz e gera um digrama de saida [A,B].  
-Em uma matriz 5x5, com 25 caracteres como a usada na PLayFair, cada caractere tem mais de 600 combinacoes que geram a saida, esse numero é dado pelo tamanhjao da matriz ao quadrado.  
+Em uma matriz 5x5, com 25 caracteres como a usada na PLayFair, cada caractere tem mais de 600 combinacoes que geram a saida, esse numero é dado por $N^2$ onde N = Quantidade de posições da matriz.  
 
 #### [CIFRA DE ROTOR](https://en.wikipedia.org/wiki/Rotor_machine):  
 Uma cifra de substituição e de fluxo que utiliza varios discos alinhados para troca dos caracteres.  
@@ -51,6 +52,13 @@ Agora, vamos a cifra da RotorPlay, em um nivel macro, podemos ver como uma Cifra
 A unidade de dados supracitada é um par de bytes, semelhante a PlayFair, mas ao ínves de letras, usamos bytes.   
 Em um nivel macro cada camada do cubo funciona como uma PlayFair, onde o par de bytes é usado na consulta das posições na matriz e cada dois bytes são trocados por outros dois bytes.  
 Agora para finalizar, a rotação usada na Cifra de Rotor que é o coração da cifra, na RotorPlay é feita como um deslocamento dos bytes dentro da camada, onde o byte no índice n após uma rotação vai para o índice n+1, e o da última posição vai para a primeira, como uma lista circular, após 256 rotações a primeira camada terá completado uma volta e a segunda camada fará a sua primeira rotação. 
+
+##### Chave:
+A chave da RotorPlay é composta 16 sequências de bytes sem repetição tamanho variavel de 0 a 256, onde cada sequência será utilizada para preencher cada uma das 16 camadas da mesma forma que a PlayFair, os bytes são copiados para o inicio da matriz e se não completar a matriz é completado em ordem crescente sem que haja repetição.  
+A opção -g do programa gera chaves completas, com 16 sequências de 256 bytes.  
+
+##### Caracteristicas:
+Poder de criptografia: A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição. A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^C$ -> $(256^2)^16$ -> $((2^8)^2)^16C$
 
 ### Definicoes:
 
