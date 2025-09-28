@@ -62,6 +62,25 @@ A opção -g do programa gera chaves completas, com 16 sequências de 256 bytes.
 A cada camada o par de bytes segue a mesma regra de possibilidades que a PlayFair, ou seja, cada par de bytes tem $256^2$ possibilidades de substituição.  
 A quantidade total de possibilidades de substituição segue a regra da Cifra de Rotor, $C^D$ onde C = Quantidade de Caracteres em cada disco e D = Número de discos, mas nesse caso C = $256^2$ já que temos uma combinatória em cada camada, resumindo, na RotorPlay, cada par de bytes tem $(256^2)^D$ -> $(256^2)^{16}$ -> $((2^8)^2)^{16}$ = $2^{256}$. Esse valor é extremamente alto, além disso, uma caracteristica levada em conta em cifras tradicionais é a análise de frequência, que é prejudicada conforme maior for a distância entre a repetição do par entrada saída, esse é um ponto forte da Cifra de Rotor e aumenta conforme o tamanho e quantidade dos discos, na RotorPlay ao inserir uma stream de bytes idênticos, a saída vai se repetir após $2^{128}$ bytes cifrados.  
 
-### Definicoes:
+### Código:
+Estruturas de Dados:
+```
+typedef struct camada_256_t{  
+  std::unordered_map<uint8_t, uint8_t> mapa; //Mapeia o byte para seu indice inicial
+  uint8_t vetor[256]; //Armazena os bytes
+  uint8_t count{0}; //Conta quantos "giros" essa camada ja fez
+} camada_256_t;
+
+typedef struct cubo_t{
+  std::vector<camada_256_t*> camadas; 
+  uint64_t profundidade; //Quantas camadas o cubo possui
+} cubo_t;
+
+typedef struct chave_t{
+  std::vector<std::vector<uint8_t>> c;
+} chave_t;
+```
+Cubo, Chave e Camadas já foram explicadas acima.  
+Aqui o importante é explicar a ```struct camada_256_t```, onde utilizamos o ```uint8_t vetor[256]``` para representar a matriz 16x16, e utilizamos duas estruturas auxiliares ```std::unordered_map<uint8_t, uint8_t> mapa``` e ```uint8_t count``` para simular as rotações a cada rodada, ao invés de copiar os valores a cada rodada, incremetamos o ```count```, e para acessar usamos o ```count``` e o ```mapa``` de cada camada nas funções ```linha_camada()```, ```coluna_camada()``` e ```acessa_vetor_chave()```, assim evitamos cópia de memória e também evitamos buscas para acessar os valores, é importante explicitar que ```mapa[byte]``` nos retorna o índice inicial daquele byte em ```O(1)```, fazendo com que todo o acesso esteja assintóticamente protegigido pelo ```O(1)```, apesar do notável overhead gerado pelos cálculos de posição.  
 
 Para mais detalhes, leia o codigo.
