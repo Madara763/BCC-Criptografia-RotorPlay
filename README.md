@@ -32,7 +32,7 @@ Opcoes complementares:
 Basicamente eh uma mistura de [PlayFair](https://en.wikipedia.org/wiki/Playfair_cipher) com [Cifra de Rotor](https://en.wikipedia.org/wiki/Rotor_machine).  
 
 ### Detalhes:
-Para enterdermos o RotorPLay é necessario um bom entendimento de como a PlayFair e como a Cifra de Rotor funcionam.  
+Para enterdermos o RotorPlay é necessario um bom entendimento de como a PlayFair e como a Cifra de Rotor funcionam.  
 
 #### [PLAYFAIR](https://en.wikipedia.org/wiki/Playfair_cipher):  
 Uma cifra de substituição que usa uma matriz de caracteres como chave.  
